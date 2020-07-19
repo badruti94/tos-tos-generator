@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Tos tos Generator</title>
+	<link rel="stylesheet" href="./asset/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./asset/css/style.css">
+
+</head>
+
+<body>
+	<h1 class="text text-warning">Tos tos Generator</h1>
+	<br><br>
+	<form action="">
+		<div class="form-group">
+			<label for="">Teks</label>
+			<textarea class="form-control bg-dark text-white" name="" id="teks" cols="30" rows="10"></textarea>
+		</div>
+		<p class="btn btn-primary" onclick="generate()">Generatos</p>
+		<p class="btn btn-warning" onclick="copy()">Copitos</p>
+		<p class="btn btn-success" onclick="clearTeks()">Clearatos</p>
+	</form>
+
+
+
+
+	<script src="./asset/js/jquery.js"></script>
+	<script src="./asset/js/popper.min.js"></script>
+	<script src="./asset/js/bootstrap.min.js"></script>
+
+	<script>
+		function generate() {
+			let teks = $('#teks').val();
+			teks = teks + ' ';
+			teks = teks.split(' ').join('tos ');
+			$('#teks').val(teks);
+		}
+
+
+		function copy() {
+			var copyText = document.getElementById('teks');
+
+			copyText.select();
+			copyText.setSelectionRange(0, 99999);
+
+			document.execCommand('copy');
+
+			$('#alert').css('display','');
+
+			alert('terkopitos');
+		}
+
+
+		function clearTeks(){
+			$('#teks').val('')
+		}
+	</script>
+</body>
+
+</html>
